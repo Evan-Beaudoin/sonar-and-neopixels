@@ -1,3 +1,8 @@
+// Created By: Evan
+// 
+// Created on: Oct. 2020
+// 
+// This program: Uses sonar to change color of neopixels
 let distance2 = 0
 let strip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
 basic.showIcon(IconNames.Yes)
@@ -7,12 +12,24 @@ basic.forever(function () {
     DigitalPin.P2,
     PingUnit.Centimeters
     )
-    if (distance2 > 6) {
+    if (distance2 > 4) {
         strip.showColor(neopixel.colors(NeoPixelColors.Green))
-    } else if (distance2 < 6 || distance2 == 6) {
+    } else if (distance2 <= 4 && distance2 > 1) {
         strip.showColor(neopixel.colors(NeoPixelColors.Blue))
-    } else if (distance2 < 3 || distance2 == 3) {
+        if (distance2 == 3) {
+            strip.clear()
+            strip.setPixelColor(3, neopixel.colors(NeoPixelColors.Blue))
+            strip.setPixelColor(2, neopixel.colors(NeoPixelColors.Blue))
+            strip.setPixelColor(1, neopixel.colors(NeoPixelColors.Blue))
+            strip.show()
+        } else if (distance2 == 2) {
+            strip.clear()
+            strip.setPixelColor(3, neopixel.colors(NeoPixelColors.Blue))
+            strip.setPixelColor(2, neopixel.colors(NeoPixelColors.Blue))
+            strip.show()
+        }
+    } else {
         strip.showColor(neopixel.colors(NeoPixelColors.Red))
     }
-    basic.pause(200)
+    basic.pause(100)
 })
