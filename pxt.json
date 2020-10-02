@@ -3,7 +3,9 @@
     "description": "",
     "dependencies": {
         "core": "*",
-        "radio": "*"
+        "radio": "*",
+        "sonar": "github:evan-beaudoin/sonar#master",
+        "robotbit": "github:kittenbot/pxt-robotbit#v0.3.6"
     },
     "files": [
         "main.blocks",
